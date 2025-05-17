@@ -25,12 +25,14 @@ func TokenGetInfo() gin.HandlerFunc {
 		}
 		uid, err := utils.GetTokenUid(c)
 		if err != nil {
+			log.Println(err)
 			c.JSON(http.StatusUnauthorized, vo.RespError("获取用户id失败", nil))
 			c.Abort()
 			return
 		}
 		role, err := getUserRole(uid)
 		if err != nil {
+			log.Println(err)
 			c.JSON(http.StatusUnauthorized, vo.RespError("无法查询到用户组", nil))
 			c.Abort()
 			return
