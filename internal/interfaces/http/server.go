@@ -1,10 +1,9 @@
 package http
 
 import (
-	"STUOJ/internal/interfaces/http/validator"
-	"STUOJ/pkg/config"
-
 	"github.com/gin-gonic/gin"
+	"stuoj-gateway/internal/interfaces/http/validator"
+	"stuoj-gateway/pkg/config"
 )
 
 var (
@@ -12,7 +11,7 @@ var (
 )
 
 func InitServer() error {
-	config := config.Conf.Server
+	config := config.Conf.Gateway.Server
 
 	// 创建gin实例
 	ginServer = gin.Default()

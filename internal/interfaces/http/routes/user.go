@@ -1,10 +1,9 @@
 package routes
 
 import (
-	"STUOJ/internal/interfaces/http/handler"
-	"STUOJ/internal/interfaces/http/middlewares"
-
 	"github.com/gin-gonic/gin"
+	"stuoj-gateway/internal/interfaces/http/handler"
+	"stuoj-gateway/internal/interfaces/http/middlewares"
 )
 
 func InitUserRoute(ginServer *gin.Engine) {
@@ -23,7 +22,7 @@ func InitUserRoute(ginServer *gin.Engine) {
 
 		userUserRoute.GET("/current", handler.UserCurrentId)
 		userUserRoute.PUT("/modify", handler.UserModify)
-		userUserRoute.POST("/avatar", handler.ModifyUserAvatar)
+		//userUserRoute.POST("/avatar", handler.ModifyUserAvatar)
 	}
 
 	userAdminRoute := ginServer.Group("/user")

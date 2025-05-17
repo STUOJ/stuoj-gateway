@@ -1,8 +1,8 @@
 package middlewares
 
 import (
-	"STUOJ/pkg/errors"
 	"net/http"
+	"stuoj-common/pkg/errors"
 
 	"github.com/gin-gonic/gin"
 )

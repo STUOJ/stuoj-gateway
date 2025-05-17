@@ -1,15 +1,15 @@
 package middlewares
 
 import (
-	"STUOJ/internal/application/dto/request"
-	"STUOJ/internal/application/service/user"
-	"STUOJ/internal/infrastructure/persistence/entity"
-	"STUOJ/internal/interfaces/http/vo"
-	"STUOJ/pkg/config"
-	"STUOJ/pkg/utils"
 	"errors"
 	"log"
 	"net/http"
+	"stuoj-api/application/dto/request"
+	"stuoj-api/infrastructure/client/user"
+	"stuoj-common/infrastructure/persistence/entity"
+	"stuoj-common/pkg/utils"
+	"stuoj-gateway/internal/interfaces/http/vo"
+	"stuoj-gateway/pkg/config"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -105,7 +105,7 @@ func TokenAuthRoot() gin.HandlerFunc {
 }
 
 func tokenAutoRefresh(c *gin.Context) error {
-	config := config.Conf.Token
+	config := config.Conf.Gateway.Token
 	exp, err := utils.GetTokenExpire(c)
 	if err != nil {
 		c.JSON(http.StatusUnauthorized, vo.RespError("token无效，获取用户信息失败", nil))
